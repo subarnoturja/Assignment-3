@@ -25,3 +25,8 @@ create table bookings (
   payment_status varchar(20) check (payment_status in ('Pending', 'Confirmed', 'Cancelled', 'Refunded')),
   total_cost numeric(10, 2) not null check(total_cost >= 0)
 )
+
+
+-- query 1
+SELECT match_id,fixture, base_ticket_price FROM matches WHERE tournament_category = 'Champions League' AND 
+match_status = 'Available'
