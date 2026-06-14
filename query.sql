@@ -15,3 +15,13 @@ create table matches(
   base_ticket_price numeric(10, 2) not null check (base_ticket_price >= 0),
   match_status varchar(30) not null check (match_status in ('Available', 'Selling Fast', 'Sold Out', 'Postponed'))
 )
+
+-- bookings table
+create table bookings (
+  booking_id serial primary key,
+  user_id int not null references users(user_id),
+  match_id int not null references matches(match_id),
+  seat_number varchar(10),
+  payment_status varchar(20) check (payment_status in ('Pending', 'Confirmed', 'Cancelled', 'Refunded')),
+  total_cost numeric(10, 2) not null check(total_cost >= 0)
+)
