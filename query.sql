@@ -39,3 +39,6 @@ select booking_id, user_id, match_id, coalesce(payment_status, 'Action Required'
 
 -- query 4
 select booking_id, users.full_name, fixture, total_cost from bookings inner join matches on bookings.match_id = matches.match_id inner join users on bookings.user_id = users.user_id
+
+-- query 5
+select users.user_id, users.full_name, bookings.booking_id from users left join bookings on users.user_id = bookings.user_id;
