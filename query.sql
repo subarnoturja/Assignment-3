@@ -42,3 +42,6 @@ select booking_id, users.full_name, fixture, total_cost from bookings inner join
 
 -- query 5
 select users.user_id, users.full_name, bookings.booking_id from users left join bookings on users.user_id = bookings.user_id;
+
+-- query 6
+select booking_id, match_id, total_cost from bookings where total_cost > (select avg(total_cost) from bookings);
