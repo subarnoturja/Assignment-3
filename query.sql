@@ -30,3 +30,6 @@ create table bookings (
 -- query 1
 SELECT match_id,fixture, base_ticket_price FROM matches WHERE tournament_category = 'Champions League' AND 
 match_status = 'Available'
+
+-- query 2
+select full_name, email from users where full_name ilike 'Tanvir%' or full_name ilike '%Haque%'
